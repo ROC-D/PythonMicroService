@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>荣誉查询结果</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+{# return render_template("general_info.html",school_name = school_name,institution_name = institution_name,#}
+{#lab_num = lab_num,evaluation = evaluation,honor_all_display = honor_all_display,project_all = project_all)#}
+<div style="width: 700px;height: 400px;margin-left: 650px;margin-top: 30px">
+{#    tr是一行，th是标题那种的一行（字体加粗），td是普通的一行#}
+    <p style="text-align: center  ; font-size: large" >微服务-荣誉查询结果 </p>
+    <table border="1" class="table table-bordered">
+        <tr>
+            <th>姓名</th>
+            <th>学术头衔</th>
+            <th>获奖情况</th>
+            <th>重点研发计划</th>
+            <th>自然基金</th>
+            <th>其他项目</th>
+        </tr>
+        {% for name in honor_dict%}
+        <tr>
+                <td>{{ name }}</td>
+                <td>
+                    {% for title in  honor_dict[name]["title"] %}
+                    {{ title }}<br>
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for award in  honor_dict[name]["award"] %}
+                    {{ award }}<br>
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for project in  honor_dict[name]["key_research_project"] %}
+                    {{ project }}<br>
+                    {% endfor %}
+                <td>
+                    {% for fund in  honor_dict[name]["nature_fund"] %}
+                    {{ fund }}<br>
+                    {% endfor %}
+                </td>
+            <td>
+                {% for project in  honor_dict[name]["other_project"] %}
+                {{ project }}<br>
+                {% endfor %}
+            </td>
+          </tr>
+        {% endfor %}
+
+    </table>
+</div>
+</body>
+{#{% for k in i['invention'] %}#}
+{#    {{ k }}<br>#}
+{#{% endfor %}#}
+{##}
+{#{{ honor_dict[name]["other_project"] }}#}
