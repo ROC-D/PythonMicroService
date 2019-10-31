@@ -25,7 +25,7 @@ path.py==11.5.2
 pathlib2==2.3.3
 pycrypto==2.6.1
 pygobject==3.26.1
-pyxdg==0.25
+pyxdg==0.26
 PyYAML==5.1
 requests==2.22.0
 scandir==1.10.0
